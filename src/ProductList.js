@@ -1,32 +1,27 @@
 import React from 'react';
-import { useSelector, shallowEqual } from 'react-redux';
+import { useSelector } from 'react-redux';
 import CartIcons from './CartIcons';
+import { Link } from 'react-router-dom';
 
 const ProductList = () => {
-	const { products, cart } = useSelector(
-		(state) => ({
-			products: state.products,
-			cart: state.cart
-		}),
-		shallowEqual
-	);
+	const products = useSelector((state) => state.products);
 
 	const items = Object.keys(products).map((key) => (
-		<div className='ui cards'>
+		<div key={key} className='ui cards'>
 			<div className='card'>
 				<div className='content'>
 					<img className='right floated mini ui image' src={products[key].image_url} />
-					<div className='header'>{products[key].name}</div>
+					<Link className='header' exact to={`/products/${key}`}>
+						{products[key].name}
+					</Link>
 
 					<div className='extra content'>
-						<CartIcons />
+						<CartIcons id={key} />
 					</div>
 				</div>
 			</div>
 		</div>
 	));
-
-	console.log('PRODUCT LIST ', items);
 
 	return (
 		<div>

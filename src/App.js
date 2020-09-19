@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import ProductList from './ProductList';
+import Routes from './Routes';
 
 function App() {
 	return (
 		<div>
 			<header className='App-header'>
-				<ProductList />
+				<Routes />
 			</header>
 		</div>
 	);
