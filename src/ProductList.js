@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, shallowEqual } from 'react-redux';
+import CartIcons from './CartIcons';
 
 const ProductList = () => {
 	const { products, cart } = useSelector(
@@ -18,18 +19,7 @@ const ProductList = () => {
 					<div className='header'>{products[key].name}</div>
 
 					<div className='extra content'>
-						<button className='ui vertical animated green button' tabindex='0'>
-							<div className='hidden content'>Add</div>
-							<div className='visible content'>
-								<i className='shop icon'></i>
-							</div>
-						</button>
-						<button className='ui vertical red animated button' tabindex='0'>
-							<div className='hidden content'>Remove</div>
-							<div className='visible content'>
-								<i className='trash icon'></i>
-							</div>
-						</button>
+						<CartIcons />
 					</div>
 				</div>
 			</div>
