@@ -1,26 +1,16 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { addToCart, removeFromCart } from './actions';
 
-const CartIcons = () => {
+const CartIcons = ({ id }) => {
 	const dispatch = useDispatch();
-
-	const addToCart = (id) => dispatch({ type: 'ADD_TO_CART', id });
-	const removeFromCart = (id) => dispatch({ type: 'REMOVE_FROM_CART', id });
+	const addItem = () => dispatch(addToCart(id));
+	const removeItem = () => dispatch(removeFromCart(id));
 
 	return (
-		<div>
-			<button onClick={addToCart} className='ui vertical animated green button' tabindex='0'>
-				<div className='hidden content'>Add</div>
-				<div className='visible content'>
-					<i className='shop icon'></i>
-				</div>
-			</button>
-			<button onClick={removeFromCart} className='ui vertical red animated button' tabindex='0'>
-				<div className='hidden content'>Remove</div>
-				<div className='visible content'>
-					<i className='trash icon'></i>
-				</div>
-			</button>
+		<div className='d-flex justify-content-between'>
+			<button onClick={addItem}>Add</button>
+			<button onClick={removeItem}>Remove</button>
 		</div>
 	);
 };

@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './rootReducer';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const store = createStore(
 	rootReducer,
@@ -17,7 +18,7 @@ const store = createStore(
 ReactDOM.render(
 	<Provider store={store}>
 		<BrowserRouter>
-			<App />
+			<Route exact path='/' component={App} />
 		</BrowserRouter>
 	</Provider>,
 	document.getElementById('root')

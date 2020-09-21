@@ -10,26 +10,16 @@ const ProductDetails = () => {
 	}));
 
 	return (
-		<div className='ui three column grid'>
-			<div className='column'>
-				<div className='ui fluid card'>
-					<div className='image'>
-						<img src={image_url} alt='product' />
-					</div>
-					<div className='content'>
-						<p className='header'>{name}</p>
-					</div>
-					<div className='description'>
-						<p className='header'>{description}</p>
-					</div>
-					<div className='extra content'>
-						<span className='right floated'>{price}</span>
-						<CartIcons id={id} />
-						<Link exact to='/'>
-							Go Back
-						</Link>
-					</div>
-				</div>
+		<div className='row'>
+			<div className='col'>
+				<img src={image_url} alt='product' />
+				<p>{name}</p>
+				<p>{description}</p>
+				<p>$ {price}</p>
+				<CartIcons id={id} />
+				<Link exact to='/'>
+					Go Back
+				</Link>
 			</div>
 		</div>
 	);
