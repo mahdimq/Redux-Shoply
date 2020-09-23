@@ -8,8 +8,8 @@ const rootReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		case ADD_TO_CART: {
 			const cartCopy = { ...state.cart };
-			cartCopy[action.id] = cartCopy[action.id] || 0 + 1;
-			return { ...state, cart: cartCopy, cartTotal: (state.products, cartCopy) };
+			cartCopy[action.id] = (cartCopy[action.id] || 0) + 1;
+			return { ...state, cart: cartCopy, cartTotal: cartTotal(state.products, cartCopy) };
 		}
 
 		case REMOVE_FROM_CART: {
